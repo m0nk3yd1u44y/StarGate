@@ -1,0 +1,108 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Basic Tabs - jQuery EasyUI Demo</title>
+	<link rel="stylesheet" type="text/css" href="jquery-easyui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="jquery-easyui/themes/icon.css">
+	<script type="text/javascript" src="jquery-easyui/jquery.min.js"></script>
+	<script type="text/javascript" src="jquery-easyui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="rcs_event.js"></script>
+</head>
+<body>
+	<div style="margin:20px 0 10px 0;"></div>
+	
+	<div class="easyui-layout" data-options="fit:true">
+	
+	<div data-options="region:'north'" style="height:40px"></div>
+	<div data-options="region:'south',split:true" style="height:100px;"></div>
+	
+	<div data-options="region:'east',split:true" title="Information" style="width:200px;">
+	<table id="pg" class="easyui-propertygrid" style="width:100%" data-options="url:'propertygrid_data1.json',method:'get',showGroup:true,scrollbarSize:0">
+	</table>
+	</div>
+
+	<div data-options="region:'center',title:'site address : www.baidu.com/admin/index.php',iconCls:'icon-ok'" style="width:100%;">
+	<div class="easyui-tabs" data-options="border:false" style="width:100%;">
+		<div title="File Management" data-options="iconCls:'icon-help',closable:true" style="padding:10px" >
+			<div class="easyui-layout" style="width:100%;height:500px;">
+				<div data-options="region:'north',border:false" style="height:30px">
+				<div class="easyui-layout" data-options="fit:true">
+					<div data-options="region:'west',border:false" style="width:40%;padding-top:4px">
+						C: >> Windows >> System32 >> drivers >> etc
+					</div>
+					<div data-options="region:'center',border:false" style="width:20%">
+						<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-search'">Home</a>
+						<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-reload'">Refresh</a>
+						<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-save'">New</a>
+					</div>
+					<div data-options="region:'east', border:false" style="width:30%">
+						<input class="easyui-textbox" data-options="buttonText:'Jump',prompt:'jump to file path...'" style="width:80%;height:24px;">
+					</div>
+				</div>
+				</div>
+				<div data-options="region:'west',split:true" title="Directory List" style="width:240px;"></div>
+				<div data-options="region:'center',iconCls:'icon-ok'" title="File List">
+					<table id="fl" class="easyui-datagrid"  style="width:100%;height:250px" data-options="singleSelect:true,collapsible:true,url:'filegrid_data1.json',method:'get',border:false,onRowContextMenu:fl_RowContextMenu">
+						<thead>
+						<tr>
+							<th data-options="field:'name',width:200">Name</th>
+							<th data-options="field:'type',width:120">Type</th>
+							<th data-options="field:'size',width:120">Size</th>
+							<th data-options="field:'date',width:160">Modified Date</th>
+							<th data-options="field:'access',width:120">Access</th>
+						</tr>
+						</thead>
+					</table>
+				</div>
+			</div>
+		</div>
+		
+		<div title="Command Execute" data-options="iconCls:'icon-help',closable:true" style="padding:10px">
+			
+		</div>
+		
+		<div title="DataBase Management" data-options="iconCls:'icon-help',closable:true" style="padding:10px">
+			<div class="easyui-layout" style="width:100%;height:560px">
+				<div data-options="region:'west',split:true" title="DataBase Config" style="width:240px">
+				
+				</div>
+				<div data-options="region:'center',iconCls:'icon-ok'" >
+					<div class="easyui-layout"  style="width:100%;height:540px">
+						<div data-options="region:'north',split:true,border:false" style="width:100%;height:300px" title="Execute SQL" >
+							<div class="easyui-layout" style="width:100%;height:100%">
+								<div data-options="region:'north',border:false" style="height:30px">
+									<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-search'">Run</a>
+									<a href="#" class="easyui-linkbutton" data-options="plain:true,iconCls:'icon-reload'">Clear</a>
+								</div>
+								<div data-options="region:'center',collapsible:false,border:false" title="SQL Statement">
+									<input class="easyui-textbox" data-options="multiline:true" value="" style="width:100%;height:100%">
+								</div>
+							</div>
+						</div>
+	
+						<div data-options="region:'center',collapsible:false,border:false" title="SQL Result" style="width:100%;height:240px" >
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	
+	</div>
+	
+	<div id="fl_mm" class="easyui-menu" style="width:160px;display:none" >
+		<div data-options="name:'download'">Download</div>
+		<div data-options="name:'upload',iconCls:'icon-save'">Upload</div>
+		<div class="menu-sep"></div>
+		<div data-options="name:'copy',iconCls:'icon-print'">Copy</div>
+		<div data-options="name:'paste',iconCls:'icon-print'">Paste</div>
+		<div data-options="name:'del',iconCls:'icon-print'">Delete</div>
+		<div class="menu-sep"></div>
+		<div data-options="name:'modifytime'">Modify Time</div>
+		<div data-options="name:'editfile'">Edit File</div>
+		<div data-options="name:'rename'">Rename</div>
+	</div>
+</body>
+</html>
